@@ -1,0 +1,367 @@
+/*initial settings*/
+@font-face {
+    font-family: pulpFiction;
+    src: url("../fonts/Pulp Fiction Italic M54.ttf");
+    font-weight: bold;
+}
+
+* {
+    font-size: calc(14px + (22 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.pulpFictionFont {
+    font-family: pulpFiction;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+
+/*general button style*/
+/*-----------------------------------------------------------*/
+.button {
+    font-size: 2em;
+    border-radius: 5px;
+    padding-inline: 10px;
+    background-color: white;
+    border: 2px solid #01579B;
+    transition: transform 0.4s;
+    font-family: pulpFiction;
+}
+
+.button:hover {
+    background-color: #01579B;
+    color: white;
+    transform: translateY(2.5px);
+}
+
+
+/*navigation bar style/layout*/
+/*-----------------------------------------------------------*/
+#navbar {
+    position: relative;
+    background-color: black;
+}
+
+#navbar_title {
+    display: inline-block;
+    font-size: 4em;
+    margin-left: 1%;
+    color: white;
+    cursor: pointer;
+}
+
+#navbar div {
+    position: absolute;
+    margin-right: 20px;
+    top: 50%;
+    right: 0%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+/*navigation bar username display, log in and sign out buttons style/layout*/
+/*-----------------------------------------------------------*/
+#userLoggedIn, #userNotLoggedIn, #btn_showToWatchList {
+    display: none;
+}
+
+#user_displayname {
+    display: block;
+    color: white;
+}
+
+#btn_Signout {
+    border: 1px solid red;
+    font-size: 1.2em;
+    min-width: 150px;
+    width: fit-content;
+}
+
+#btn_Signout:hover {
+    background-color: red;
+}
+
+/*search bar style/layout*/
+/*-----------------------------------------------------------*/
+#search_toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#searchbar {
+    margin: 10px;
+    display: inline-block;
+    width: 30%;
+    min-width: 400px;
+}
+
+#input_movieTitle {
+    padding-top: 15px;
+    padding-bottom: 0px;
+}
+
+#select_genre {
+    margin: 20px;
+    font-size: 1.5em;
+    padding-inline: 20px;
+    border-radius: 5px;
+}
+
+#btn_search {
+    margin: 10px;
+}
+
+
+/*style for buttons for filtering popular/top rated/upcoming/now playing movies*/
+/*-----------------------------------------------------------*/
+#btns_getMovies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#btns_getMovies button {
+    margin: 5px;
+    font-size: 1.75em;
+}
+
+/*show what filter option we used*/
+#searchMode {
+    text-indent: 20px;
+}
+
+
+/*container for displayed movies style/layout*/
+/*-----------------------------------------------------------*/
+#movies_container {
+    padding-bottom: 170px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 345px);
+    justify-content: center;
+}
+
+/*layout and style for loading circle while the movie data is being loaded*/
+#loader {
+    position: relative;
+    top: 20%;
+    z-index: 100;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    border: 10px solid #01579B;
+    border-top: 10px solid white;
+}
+
+/*enter animation for movies*/
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 0.5s
+}
+
+@-webkit-keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+    to {
+        bottom: 0px;
+        opacity: 1
+    }
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+/*individual movie style*/
+.movie {
+    margin: 20px;
+    transition: all 0.1s;
+    border: 2px solid black;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.movie:hover {
+    transform: scale(1.075);
+}
+
+.movie_poster {
+    width: 100%;
+    height: 450px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.movie_info {
+    display: block;
+    font-size: 1.5em;
+    padding-left: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-bottom: 1px solid black;
+}
+
+.movie_info:nth-child(3) {
+    font-size: 1.3em;
+}
+
+.movie :last-child {
+    border-radius: 20px;
+}
+
+/*movie page navigation style/layout*/
+/*-----------------------------------------------------------*/
+#page_navigation {
+    position: absolute;
+    bottom: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    height: 30px;
+}
+
+#btn_previousPage, #btn_nextPage {
+    font-size: 1.5em;
+    visibility: hidden;
+    transition: transform 0.2s;
+}
+
+#btn_previousPage:active {
+    transform: translateX(-5px);
+}
+
+#btn_nextPage:active {
+    transform: translateX(5px);
+}
+
+#current_pageNumber {
+    font-size: 2em;
+    margin-inline: 15px;
+}
+
+
+/*footer style/layout*/
+/*-----------------------------------------------------------*/
+footer {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    background-image: url("../img/leon.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 99%;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+/*responsive design for smaller screens*/
+/*-----------------------------------------------------------*/
+@media only screen and (max-width: 768px) {
+    #navbar_title {
+        font-size: 3.5em;
+    }
+    #btn_Signout {
+        min-width: 0px;
+    }
+    #search_ByTitle {
+        display: flex;
+        width: 100%;
+        margin: 10px;
+        align-items: center;
+    }
+    #searchbar {
+        margin: 2px;
+        display: inline-block;
+        width: 70%;
+        min-width: 100px;
+        padding: 5px;
+    }
+    .button {
+        border: 1px solid #01579B;
+    }
+    .button:hover {
+        transform: none;
+    }
+    #btn_search {
+        height: fit-content;
+    }
+    #select_genre {
+        margin: 0px auto 10px auto;
+    }
+    #btns_getMovies {
+        display: flex;
+    }
+    #movies_container {
+        padding-bottom: 90px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 145px);
+        justify-content: center;
+    }
+    #loader {
+        top: 5%;
+        width: 100px;
+        height: 100px;
+    }
+    #searchMode {
+        text-indent: 10px;
+    }
+    .movie {
+        margin: 5px;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+    .movie_poster {
+        height: 200px;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+    .movie_info {
+        padding-left: 2px;
+        font-size: 1em;
+        border-bottom: 1px solid black;
+    }
+    .movie_info:nth-child(3) {
+        font-size: 1em;
+    }
+    .movie :last-child {
+        border-radius: 5px;
+    }
+    #page_navigation {
+        height: 40px;
+        bottom: 45px;
+        padding: 10px;
+    }
+    #current_pageNumber {
+        margin-inline: 10px;
+    }
+    footer {
+        height: 40px;
+        font-size: 1.2em;
+    }
+}

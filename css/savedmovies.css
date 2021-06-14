@@ -1,0 +1,203 @@
+@font-face {
+    font-family: pulpFiction;
+    src: url("../fonts/Pulp Fiction Italic M54.ttf");
+    font-weight: bold;
+}
+
+* {
+    font-size: calc(14px + (22 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.pulpFictionFont {
+    font-family: pulpFiction;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+#navbar {
+    position: relative;
+    background-color: black;
+}
+
+#navbar_title {
+    display: inline-block;
+    font-size: 4em;
+    margin-left: 1%;
+    color: white;
+    cursor: pointer;
+}
+
+#navbar div {
+    position: absolute;
+    margin-right: 20px;
+    top: 50%;
+    right: 0%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+#userLoggedIn, #userNotLoggedIn {
+    display: none;
+}
+
+#user_displayname {
+    display: block;
+    color: white;
+}
+
+#btn_Signout {
+    border: 1px solid red;
+    font-size: 1.2em;
+    min-width: 150px;
+    width: fit-content;
+}
+
+#btn_Signout:hover {
+    background-color: red;
+}
+
+.button {
+    font-size: 2em;
+    border-radius: 5px;
+    padding-inline: 10px;
+    background-color: white;
+    border: 2px solid #01579B;
+    transition: transform 0.4s;
+    font-family: pulpFiction;
+}
+
+.button:hover {
+    background-color: #01579B;
+    color: white;
+    transform: translateY(2.5px);
+}
+
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 100;
+    width: 150px;
+    height: 150px;
+    margin: -76px 0 0 -76px;
+    border: 10px solid #01579B;
+    border-top: 10px solid white;
+}
+
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+    to {
+        bottom: 0px;
+        opacity: 1
+    }
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+#savedMovies {
+    padding-bottom: 120px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 400px);
+    justify-content: center;
+}
+
+.savedMovie {
+    border: 2px solid black;
+    transition: all 0.1s;
+    border-radius: 20px;
+}
+
+.savedMovie:hover {
+    transform: scale(1.03);
+}
+
+.savedMovieTitle {
+    font-size: 1.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.savedMoviePoster {
+    width: 100%;
+    cursor: pointer;
+}
+
+footer {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    background-image: url("../img/leon.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 99%;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #navbar_title {
+        font-size: 3.5em;
+    }
+    #btn_Signout {
+        min-width: 0px;
+    }
+    .button {
+        border: 1px solid #01579B;
+    }
+    .button:hover {
+        transform: none;
+    }
+    #savedMovies {
+        padding-bottom: 50px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 150px);
+        justify-content: center;
+    }
+    #savedMovies button {
+        font-size: 0.9em;
+    }
+    .savedMovie {
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+    .savedMovieTitle {
+        font-size: 1.2em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    footer {
+        height: 40px;
+        font-size: 1.2em;
+    }
+}

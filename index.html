@@ -2,17 +2,98 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <title>Cinephil</title>
     <link rel="icon" href="img/icon.svg">
-    <link rel="stylesheet" href="/css/index.css">
-    <script src="/js/index.js" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js" type="text/javascript"></script>
+    <meta name="description" content="Discovering movies">
+    <meta name="keywords" content="Movie, genre, search">
 </head>
 
 <body>
+    <nav id="navbar">
+        <h1 class="pulpFictionFont" id="navbar_title">Cinephil</h3>
+            <div id="userLoggedIn">
+                <span aria-label="Username" id="user_displayname"></span>
+                <button class="button" id="btn_Signout">Sign out</button>
+            </div>
+            <div id="userNotLoggedIn">
+                <button class="button" id="btn_Login">Log in</button>
+            </div>
+    </nav>
 
+    <div class="d-flex justify-content-center justify-content-lg-end">
+        <button class="button m-2" id="btn_showToWatchList">Show saved movies</button>
+    </div>
+
+    <div id="search_toolbar">
+        <div id="search_ByTitle">
+            <div class="form-floating" id="searchbar">
+                <input type="text" class="form-control" id="input_movieTitle" placeholder="Shrek">
+                <label for="input_movieTitle">Search by title</label>
+            </div>
+
+            <button class="button" id="btn_search">Search</button>
+        </div>
+
+        <select class="pulpFictionFont" name="genres" id="select_genre">
+            <option value="-1">Search by genre</option>
+        </select>
+    </div>
+
+
+    <div id="btns_getMovies">
+        <button aria-label="Search popular movies" class="button" id="btn_getPopularMovies">Popular movies</button>
+        <button aria-label="Search top rated movies" class="button" id="btn_getTopRatedMovies">Top rated movies</button>
+        <button aria-label="Search future movies" class="button" id="btn_getUpcomingMovies">Upcoming movies</button>
+        <button aria-label="Search new movies" class="button" id="btn_getNowPlayingMovies">Now playing movies</button>
+    </div>
+
+    <div class="m-1" id="searchMode"></div>
+
+    <div id="movies_container">
+        <div class="spinner-border text-primary" id="loader"></div>
+    </div>
+
+    <div id="page_navigation">
+        <button aria-label="Go to previous page" class="button" id="btn_previousPage">&#8678</button>
+        <span class="pulpFictionFont" id="current_pageNumber"></span>
+        <button aria-label="Go to next page" class="button" id="btn_nextPage">&#8680</button>
+    </div>
+
+    <footer>Made by: Šarani</footer>
+
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script> -->
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyDTH81_20mpBlO2Oge5Ft1-oUkldjYdTM4",
+            authDomain: "cinephil-ea415.firebaseapp.com",
+            projectId: "cinephil-ea415",
+            storageBucket: "cinephil-ea415.appspot.com",
+            messagingSenderId: "495640395100",
+            appId: "1:495640395100:web:9cc13f37e79a52d268d599",
+            measurementId: "G-SB260BJ6GM"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    /* firebase.analytics(); */
+    </script>
 </body>
 
 </html>
