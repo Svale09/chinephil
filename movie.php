@@ -12,16 +12,25 @@
     <script src="./js/movie.js" type="text/javascript"></script>
 </head>
 
+
+<?php
+
+if (isset($_GET["id"])) {
+    echo '<script>setMovieID(' . $_GET["id"] . ')</script>';
+}
+
+?>
+
 <body>
     <nav id="navbar">
         <h1 role="button" aria-label="Return to Index Page" class="pulpFictionFont" id="navbar_title">Cinephil</h1>
-            <div id="userLoggedIn">
-                <span aria-label="Username" id="user_displayname"></span>
-                <button class="button" id="btn_Signout">Sign out</button>
-            </div>
-            <div id="userNotLoggedIn">
-                <button class="button" id="btn_Login">Log in</button>
-            </div>
+        <div id="userLoggedIn">
+            <span aria-label="Username" id="user_displayname"></span>
+            <button class="button" id="btn_Signout">Sign out</button>
+        </div>
+        <div id="userNotLoggedIn">
+            <button class="button" id="btn_Login">Log in</button>
+        </div>
     </nav>
 
     <div aria-label="Movie Information" id="movieDetails">
@@ -72,7 +81,7 @@
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-       /*  firebase.analytics(); */
+        /*  firebase.analytics(); */
     </script>
     </script>
 </body>

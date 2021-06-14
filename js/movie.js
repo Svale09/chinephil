@@ -28,16 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
         userIsNotLoggedIn();
     }
 
-    if (sessionStorage.getItem("movieID") != null) {
-        currentMovieID = sessionStorage.getItem("movieID");
-    }
-    else {
-        currentMovieID = "68718";
-    }
-
     getGenres();
     loadMovie();
-
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             // User is signed in, see docs for a list of available properties
@@ -182,9 +174,8 @@ function getSimilarMovies() {
             if (similarMovies.results != "") {
                 document.getElementById("similarMoviesLabel").innerHTML = "Similar movies";
                 let html = '';
-
                 for (let i in similarMovies.results) {
-                    html += `<div class="similarMovie m-2" onclick="showMovieDetails(${similarMovies.results[i].id})">`;
+                    html += `<a href="movie.php?id=${similarMovies.results[i].id}"><div class="similarMovie m-2" onclick="showMovieDetails(${similarMovies.results[i].id})">`;
                     if (similarMovies.results[i].poster_path != null) {
                         html += `<img class="similarMovie_poster" alt="${similarMovies.results[i].title}" src=https://image.tmdb.org/t/p/w200${similarMovies.results[i].poster_path} loading="lazy">`;
                     }
@@ -208,9 +199,6 @@ function getSimilarMovies() {
 
 }
 
-function showMovieDetails(movieID) {
-
-    sessionStorage.setItem("movieID", movieID);
-    window.location = "movie.html";
-
+function setMovieID(movieID) {
+    currentMovieID = movieID
 }

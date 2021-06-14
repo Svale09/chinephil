@@ -128,6 +128,11 @@ body {
     width: 100%;
 }
 
+#similarMovies a {
+    text-decoration: none;
+    color: black;
+}
+
 .similarMovie {
     width: 200px;
     text-align: center;
