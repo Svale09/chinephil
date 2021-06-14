@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     document.querySelector("#btn_discoverMovies").addEventListener("click", event => {
         event.preventDefault()
-        window.location.replace("index.html")
+        window.history.back()
     })
 
 })
@@ -85,7 +85,7 @@ function renderSavedMoviesIntoHTML(movies) {
 
 function showMovieDetails(movieID) {
     sessionStorage.setItem("movieID", movieID)
-    window.location = "movie.html"
+    window.location = `movie.php?id=${movieID}`
     return false
 }
 
