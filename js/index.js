@@ -462,6 +462,8 @@ window.addEventListener('popstate', e => {
         select_genre.selectedIndex = e.state.selectedIndex;
         genre = e.state.genre
 
+        setCurrentPageNumber(currentPageNumber);
+
         switch (searchedBy) {
             case searchedByEnum.title:
                 getMoviesByTitle(inputTitle, currentPageNumber);
