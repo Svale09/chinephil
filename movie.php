@@ -58,30 +58,30 @@ if (isset($_GET["id"])) {
     <footer>Made by: Šarani</footer>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script> -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script> -->
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
 
     <script>
         // Your web app's Firebase configuration
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        var firebaseConfig = {
-            apiKey: "AIzaSyDTH81_20mpBlO2Oge5Ft1-oUkldjYdTM4",
-            authDomain: "cinephil-ea415.firebaseapp.com",
-            databaseURL: "https://cinephil-ea415-default-rtdb.firebaseio.com",
-            projectId: "cinephil-ea415",
-            storageBucket: "cinephil-ea415.appspot.com",
-            messagingSenderId: "495640395100",
-            appId: "1:495640395100:web:9cc13f37e79a52d268d599",
-            measurementId: "G-SB260BJ6GM"
-        };
+        const firebaseConfig = {
+  apiKey: "AIzaSyBx-ptRl0CygBfbJZPXNiIZjM678jjPv_Y",
+  authDomain: "cinephil-c54db.firebaseapp.com",
+  projectId: "cinephil-c54db",
+  storageBucket: "cinephil-c54db.appspot.com",
+  messagingSenderId: "58616980623",
+  appId: "1:58616980623:web:6f22be444bfaf77b2c7cfa",
+  databaseURL: "https://cinephil-c54db-default-rtdb.europe-west1.firebasedatabase.app/"
+};
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-        /*  firebase.analytics(); */
+    /* firebase.analytics(); */
     </script>
     </script>
 </body>
