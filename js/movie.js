@@ -1,4 +1,4 @@
-const API_KEY = '926778143bfe3c5328489e1449de6d9b';
+const API_KEY = '55c1f2841989ee54cc3a9b0fc3e02aaf';
 const genresMap = new Map();
 let dbRefObject;
 let MOVIE;
@@ -114,7 +114,6 @@ function getGenres() {
 }
 
 function loadMovie() {
-
     fetch(`https://api.themoviedb.org/3/movie/${currentMovieID}?api_key=${API_KEY}&append_to_response=videos`, {
         method: 'get'
     })

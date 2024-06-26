@@ -258,6 +258,7 @@ function resetInputValues() {
 
 //go to selected movie page
 function showMovieDetails(movieID) {
+    console.log("Prikazujem detailse")
     historyPush();
     sessionStorage.setItem("movieID", movieID);
     sessionStorage.setItem("currentPage", currentPageNumber);
@@ -268,7 +269,7 @@ function showMovieDetails(movieID) {
 
 
 /* API functions */
-const API_KEY = '926778143bfe3c5328489e1449de6d9b'
+const API_KEY = '55c1f2841989ee54cc3a9b0fc3e02aaf'
 function getGenres() {
     fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`, {
         method: 'get'
@@ -425,6 +426,7 @@ function renderMoviesIntoHTML(searchModeHTML, moviesJSON) {
 
 //history push and pop
 function historyPush() {
+    console.log("History push")
     refreshFlag = false;
 
     let state = {

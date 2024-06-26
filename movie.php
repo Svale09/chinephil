@@ -12,7 +12,6 @@
     <script src="./js/movie.js" type="text/javascript"></script>
 </head>
 
-
 <?php
 
 if (isset($_GET["id"])) {
@@ -20,6 +19,7 @@ if (isset($_GET["id"])) {
 }
 
 ?>
+
 
 <body>
     <nav id="navbar">
