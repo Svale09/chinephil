@@ -55,7 +55,7 @@ if (isset($_GET["id"])) {
         <div aria-label="List of Similar Movies" class="d-inline-flex p-1" id="similarMovies"></div>
     </div>
 
-    <footer>Made by: Šarani</footer>
+    <footer>Made by: Svale09</footer>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
