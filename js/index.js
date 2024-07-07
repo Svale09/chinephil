@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //on refresh keep the search parameters
     Promise.resolve(getGenres()).then(function () {
         if (history.state != null) {
+            //restores the state after refresh
             document.getElementById("page_navigation").style.display = 'flex';
             currentPageNumber = history.state.currentPage;
             maxPageNumber = history.state.maxPages;
@@ -31,11 +32,11 @@ document.addEventListener("DOMContentLoaded", function () {
             genre = history.state.genre;
 
             refreshFlag = true;
-            //select_genre.selectedIndex = history.state.selectedIndex;
             searchByInput();
             setCurrentPageNumber(currentPageNumber);
         }
         else {
+            //if there is no previous state, i.e. fresh load
             getPopularMovies(1);
             document.getElementById("page_navigation").style.display = 'flex';
             showInitialStatePageNavigation();
@@ -103,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
     document.querySelector("#input_movieTitle").addEventListener("keyup", event => {
-        if (event.keyCode == 13) {
+        if (event.keyCode == 13) { //if enter is pressed
             event.preventDefault();
             document.getElementById("btn_search").click();
         }
@@ -258,7 +259,6 @@ function resetInputValues() {
 
 //go to selected movie page
 function showMovieDetails(movieID) {
-    console.log("Prikazujem detailse")
     historyPush();
     sessionStorage.setItem("movieID", movieID);
     sessionStorage.setItem("currentPage", currentPageNumber);
@@ -388,6 +388,7 @@ function getMoviesByTitle(title, pageNumber) {
 }
 
 function renderMoviesIntoHTML(searchModeHTML, moviesJSON) {
+    //rendering movie data into HTML
     searchMode.innerHTML = searchModeHTML;
     setMaxPageNumber(moviesJSON.total_pages);
     let html = '';
@@ -425,6 +426,7 @@ function renderMoviesIntoHTML(searchModeHTML, moviesJSON) {
 
 
 //history push and pop
+//manages browser history state
 function historyPush() {
     console.log("History push")
     refreshFlag = false;
@@ -441,6 +443,7 @@ function historyPush() {
     let title = '';
     let url = '?search=' + searchedBy + "&page=" + currentPageNumber;
 
+    //checks if current state is different from last saved
     if (!history.state ||
         history.state.currentPage != state.currentPage ||
         history.state.currentSearch != state.currentSearch ||
