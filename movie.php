@@ -47,6 +47,7 @@ if (isset($_GET["id"])) {
 
         <button aria-label="Add Movie to Favorite List" class="button m-2" id="btn_toggleFavourite"></button>
 
+    <!-- emmbeds the youtube video player -->
         <div class="text-center" id="movieTrailerDiv">
             <iframe id="movieTrailer" title="Movie trailer from YouTube" allowfullscreen></iframe>
         </div>

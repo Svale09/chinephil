@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     })
 
+    //switches which form is displayed
     document.querySelector("#span_showLoginForm").addEventListener("click", event => {
         event.preventDefault()
         document.querySelector("#form_login").style.display = "block"
@@ -51,6 +52,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     })
 
+    //checks if enter is pressed
     document.querySelector("#form_login_input_password").addEventListener("keyup", event => {
         if (event.keyCode == 13) {
             event.preventDefault()

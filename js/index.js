@@ -263,6 +263,7 @@ function showMovieDetails(movieID) {
     sessionStorage.setItem("movieID", movieID);
     sessionStorage.setItem("currentPage", currentPageNumber);
     sessionStorage.setItem("currentSearch", searchedBy);
+    //calls movie.php to display the movie details page
     window.location = `movie.php?id=${movieID}`
     return false
 }

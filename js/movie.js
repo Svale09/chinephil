@@ -164,6 +164,7 @@ function formatDate(date) {
 }
 
 function getSimilarMovies() {
+    //gets similar movies from the IMDB API
     fetch(`https://api.themoviedb.org/3/movie/${currentMovieID}/similar?api_key=${API_KEY}&language=en-US&page=1`, {
         method: 'get'
     })
